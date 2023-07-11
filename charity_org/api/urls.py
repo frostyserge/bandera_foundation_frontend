@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .views import main
+from .views import MerchView
 from django.urls import path
 
 urlpatterns = [
-    path('', main),
+    path('', MerchView.as_view()),
 ]

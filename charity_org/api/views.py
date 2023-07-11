@@ -1,6 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from rest_framework.generics import CreateAPIView
+from .serializers import MerchSerializer
+from .models import Merch
 
-# Create your views here.
-def main(request):
-   return HttpResponse("<h1>Hello World</h1>")
+# our api views
+
+class MerchView(CreateAPIView):
+    queryset = Merch.objects.all()
+    serializer_class = MerchSerializer

@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .views import MerchView
+from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('', MerchView.as_view()),
+    path('', views.HomeView.as_view(), name = 'home'),
 ]

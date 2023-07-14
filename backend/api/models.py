@@ -3,9 +3,7 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
 
 
-# class User(AbstractUser):
-
-
+# class AppUser(AbstractUser):
 
 class Merch(models.Model):
     name = models.CharField(max_length=100)
@@ -20,10 +18,10 @@ class Merch(models.Model):
     class Meta:
         ordering = ['name']
 
-class AmazonItem(models.Model):
-    name = models.CharField(max_length=150)
-    img = models.CharField(max_length=500)
-    description = models.CharField(max_length=1000)
-    high_priority = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
+# class AmazonItem(models.Model):
+#     name = models.CharField(max_length=150)
+#     img = models.CharField(max_length=500)
+#     description = models.CharField(max_length=1000)
+#     high_priority = models.BooleanField(default=False)
+#     created_at = models.DateTimeField(auto_now_add=True)
 

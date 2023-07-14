@@ -86,10 +86,10 @@ REST_FRAMEWORK = { # the authentication JWT Class
 }
 
 SIMPLE_JWT = { # the SIMPLE_JWT token configurations to implement an access/refresh logic
-     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=10),
-     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+     'REFRESH_TOKEN_LIFETIME': timedelta(days=5),
      'ROTATE_REFRESH_TOKENS': True,
-     'BLACKLIST_AFTER_ROTATION': True
+     'BLACKLIST_AFTER_ROTATION': True,
 }
 
 # Database

@@ -36,14 +36,14 @@ function Header() {
                                     Merch
                                 </NavDropdown.Item>
                                 <NavDropdown.Item href="/cart">
-                                    Cart
+                                    <i className="fas fa-shopping-cart"></i>Cart
                                 </NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link href="/donate">
                                 Donate
                             </Nav.Link>
                             <Nav.Link href="/login">
-                                Login
+                            <i className="fas fa-user"></i>Login
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

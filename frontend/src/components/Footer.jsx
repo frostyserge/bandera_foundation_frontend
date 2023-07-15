@@ -1,9 +1,12 @@
+import {  Container, Row, Col } from 'react-bootstrap';
 
 function Footer() {
     return (
-        <div>
-            <header>Footer</header>
-        </div>
+        <footer>
+            <Container>
+                <Col className="text-center py-3">Copyright &copy; Bandera Foundation</Col>
+            </Container>
+        </footer>
     )
 };
 

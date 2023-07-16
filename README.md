@@ -43,8 +43,8 @@ This project's mission is to help this organization to have a better presense on
 
 
 # Technologies used:
-- [ ] Front end : React.gs, Bootstrap
-- [ ] Back end : Django, Stripe payment API, Calendar API
+- [ ] Front end : React.js, Redux, Bootstrap
+- [ ] Back end : Django, Django REST Framework, Stripe payment API, Calendar API
 - [ ] Database: PostrgreSQL
 
 # Initial Wireframe

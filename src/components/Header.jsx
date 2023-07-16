@@ -1,11 +1,14 @@
 import { Navbar, Nav, Container, Row, NavDropdown } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 function Header() {
     return (
         <header>
             <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
                 <Container fluid>
-                    <Navbar.Brand href="/">Bandera Foundation</Navbar.Brand>
+                    <LinkContainer to="/">
+                        <Navbar.Brand>Bandera Foundation</Navbar.Brand>
+                    </LinkContainer>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav

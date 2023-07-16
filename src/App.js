@@ -3,30 +3,30 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 // import Login from './components/Login';
-// import Home from './components/Home';
+import Home from './pages/Home';
+import Shop from './pages/Shop'
 import Navigation from './components/Navigation';
 // import Logout from './components/Logout';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
+      <Router>
+        <Header />
         <main className="py-3">
-          <Container>
-            <h1>Bandera Foundation</h1>
-          </Container>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/merch" element={<Shop />} />
+          </Routes>
         </main>
-      {/* <Router> */}
-        {/* <Navigation /> */}
-        {/* <Routes> */}
-          {/* <Route path="/" element={<Home />} /> */}
-          {/* <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} /> */}
-        {/* </Routes>
-      </Router> */}
-      <Footer />
-    </div>
+        {/* <Navigation />
+        <Routes> 
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} /> 
+        </Routes> */}
+        <Footer />
+      </Router>
   );
 }
 

@@ -16,38 +16,54 @@ function Header() {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="/about">About</Nav.Link>
-                            <Nav.Link href="/projects">Projects</Nav.Link>
-                            <Nav.Link href="/reports">
-                                Reports
-                            </Nav.Link>
+                            <LinkContainer to="/about">
+                                <Nav.Link>About</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/projects">
+                                <Nav.Link>Projects</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/reports">
+                                <Nav.Link>Reports</Nav.Link>
+                            </LinkContainer>
                             <NavDropdown
                                 title="Help"
                                 id="navbarScrollingDropdown"
-                            >
-                                <NavDropdown.Item href="/civilian_help">
-                                    Civilians
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="/military_help">
-                                    Army
-                                </NavDropdown.Item>
+                                >
+                                <LinkContainer to="/civilian_help">
+                                    <NavDropdown.Item>
+                                        Civilians
+                                    </NavDropdown.Item>
+                                </LinkContainer>
+                                <LinkContainer to="/military_help">
+                                    <NavDropdown.Item>
+                                        Army
+                                    </NavDropdown.Item>
+                                </LinkContainer>
                             </NavDropdown>
                             <NavDropdown
                                 title="Shop"
                                 id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="/merch">
-                                    Merch
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="/cart">
-                                    <i className="fas fa-shopping-cart"></i>Cart
-                                </NavDropdown.Item>
+                                <LinkContainer to="/merch">
+                                    <NavDropdown.Item>
+                                        Merch
+                                    </NavDropdown.Item>
+                                </LinkContainer>
+                                <LinkContainer to="/cart">
+                                    <NavDropdown.Item>
+                                        <i className="fas fa-shopping-cart"></i>Cart
+                                    </NavDropdown.Item>
+                                </LinkContainer>
                             </NavDropdown>
-                            <Nav.Link href="/donate">
-                                Donate
-                            </Nav.Link>
-                            <Nav.Link href="/login">
-                            <i className="fas fa-user"></i>Login
-                            </Nav.Link>
+                            <LinkContainer to="/donate">
+                                <Nav.Link>
+                                    Donate
+                                </Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/login">
+                                <Nav.Link>
+                                <i className="fas fa-user"></i>Login
+                                </Nav.Link>
+                            </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

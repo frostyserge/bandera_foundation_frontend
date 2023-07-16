@@ -2,9 +2,9 @@
 function Shop() {
     return (
         <>
-            <div>
+            <h1>
                 Our Shop
-            </div>
+            </h1>
         </>
     )
 };

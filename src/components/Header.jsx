@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container, Row, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import Navigation from './Navigation';
 
 function Header() {
     return (
@@ -59,11 +60,12 @@ function Header() {
                                     Donate
                                 </Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to="/login">
+                            <Navigation />
+                            {/* <LinkContainer to="/login">
                                 <Nav.Link>
                                 <i className="fas fa-user"></i>Login
                                 </Nav.Link>
-                            </LinkContainer>
+                            </LinkContainer> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

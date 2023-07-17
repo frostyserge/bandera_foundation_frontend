@@ -13,12 +13,10 @@ function App() {
   return (
       <Router>
         <Header />
-        <main className="py-3">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/merch" element={<Shop />} />
           </Routes>
-        </main>
         {/* <Navigation />
         <Routes> 
           <Route path="/" element={<Home />} />

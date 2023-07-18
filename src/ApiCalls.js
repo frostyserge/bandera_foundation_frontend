@@ -9,6 +9,7 @@ export async function productsData() {
         return parsedProducts
     } catch(err) {
         console.log(err);
+        return []
     }
 };
 
@@ -16,10 +17,11 @@ export async function productData(id) {
     try {
         let product = await fetch(URL + `shop/${id}`)
         product = await product.json()
-        console.log(product)
+        console.log('PRODUCT_DATA' + product)
         return product
     } catch(err) {
         console.log(err);
+        return null
     }
 };
 

@@ -7,6 +7,7 @@ import Logout from './components/Logout';
 import Home from './pages/Home';
 import Shop from './pages/Shop'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MerchDetail from './pages/MerchDetail';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
+            <Route path="/shop/:id" element={<MerchDetail />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} /> 
           </Routes>

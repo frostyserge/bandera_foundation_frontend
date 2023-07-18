@@ -2,10 +2,10 @@ import { Row, Col } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { productsData } from '../ApiCalls';
-import MerchDetails from '../components/MerchDetails';
+import ShopDetailBox from '../components/ShopDetailBox';
+import { Link } from 'react-router-dom';
 
 function Shop(props) {
-    const { productId } = useParams();
     const [products, setProducts] = useState([]);
 
     async function fetchProducts () {
@@ -23,11 +23,13 @@ function Shop(props) {
 
     function renderList() {
         console.log(products)
-        const productsArray = products.map((value, idx) => {
+        const productsArray = products.map((product, idx) => {
             return (
                         <Row>
                                 <Col key={idx} sm={12} md={6} lg={4} xl={3}>
-                                    <MerchDetails product={{value, fetchProducts}} />
+                                    <Link to={`/shop/${product._id}`}>
+                                        <ShopDetailBox product={product} />
+                                    </Link>
                                 </Col>
                         </Row>
             )

@@ -1,34 +1,46 @@
 import { Row, Col } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import Merch from '../components/Merch';
-import axios from 'axios';
+import { useParams } from 'react-router';
+import { productsData } from '../ApiCalls';
+import MerchDetails from '../components/MerchDetails';
 
-function Shop() {
+function Shop(props) {
+    const { productId } = useParams();
+    const [products, setProducts] = useState([]);
 
-    const [merchItem, setMerch] = useState([]);
-
-    useEffect(() => {
-        async function fetchMerch () {
-            const { data } = await axios.get('/shop/')
-            setMerch(data);
+    async function fetchProducts () {
+        try {
+            let allProducts = await productsData()
+            setProducts(allProducts)
+            console.log(allProducts)
+        } catch(err) {
+            console.log(err)
         }
-
-        fetchMerch()
-
+    }
+    useEffect(() => {
+        fetchProducts()
     }, []);
+
+    function renderList() {
+        console.log(products)
+        const productsArray = products.map((value, idx) => {
+            return (
+                        <Row>
+                                <Col key={idx} sm={12} md={6} lg={4} xl={3}>
+                                    <MerchDetails product={{value, fetchProducts}} />
+                                </Col>
+                        </Row>
+            )
+        })
+        return productsArray;
+    };
     return (
-        <>
+            <>
             <div>
                 <h1>
                     Each purchase makes a difference!
                 </h1>
-                <Row>
-                    {merch.map(merchItem => (
-                        <Col key={merchItem._id} sm={12} md={6} lg={4} xl={3}>
-                            <Merch merch={merchItem} />
-                        </Col>
-                    ))}
-                </Row>
+                {renderList()}
             </div>
         </>
     )

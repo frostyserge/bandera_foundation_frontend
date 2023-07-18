@@ -1,40 +1,41 @@
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom'; 
+import { Link, useParams } from 'react-router-dom'; 
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 
-function Merch({ match }) {
-    const [merchItem, setMerchDetails] = useState([]);
+function MerchDetails(props) {
+    const myProduct = props.product.value
+    const { id } = useParams();
+    console.log(id)
 
+    // const [product, setProduct] = useState({});
+
+    async function fetchProduct () {
+        
+    }
     useEffect(() => {
-        async function fetchMerchDetails () {
-            const { data } = await axios.get(`/shop/${match.params.id}`)
-            setMerchDetails(data);
-        }
-
-        fetchMerchDetails()
-
+        fetchProduct()
     }, []);
+
     return (
         <>
             <Card className="my-3 p-3 rounded">
-                <Link to={`/merch/`}>
-                    <Card.Img href={merch.img} />
+                <Link to={`/shop/`}>
+                    <Card.Img href={myProduct.img} />
                 </Link>
                 <Card.Body>
-                    <Link to={`/merch/:id`}>
+                    <Link to={`/shop/${id}`}>
                         <Card.Title>
                             <strong>
-                                {merch.name}
+                                {myProduct.name}
                             </strong>
                         </Card.Title>
                     </Link>
                     <Card.Text as="h3">
-                        ${merch.price}
+                        ${myProduct.price}
                     </Card.Text>
                     <Card.Text as="div">
                         <div className="my-3">
-                            {merch.description}
+                            {myProduct.description}
                         </div>
                     </Card.Text>
                 </Card.Body>
@@ -43,4 +44,4 @@ function Merch({ match }) {
     )
 };
 
-export default Merch;
+export default MerchDetails;

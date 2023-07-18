@@ -1,4 +1,4 @@
-import Merch from '../components/Merch';
+import Merch from '../components/MerchDetails';
 import { Carousel } from 'react-bootstrap';
 
 function Home() {

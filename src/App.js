@@ -6,7 +6,6 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import Home from './pages/Home';
 import Shop from './pages/Shop'
-import Navigation from './components/Navigation';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
         <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/merch" element={<Shop />} />
+            <Route path="/shop" element={<Shop />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} /> 
           </Routes>

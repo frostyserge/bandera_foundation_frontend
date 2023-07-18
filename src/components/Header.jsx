@@ -44,7 +44,7 @@ function Header() {
                             <NavDropdown
                                 title="Shop"
                                 id="navbarScrollingDropdown">
-                                <LinkContainer to="/merch">
+                                <LinkContainer to="/shop">
                                     <NavDropdown.Item>
                                         Merch
                                     </NavDropdown.Item>

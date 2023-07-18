@@ -1,27 +1,21 @@
 import { Card } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom'; 
-import { useEffect } from 'react';
-import { productData } from '../ApiCalls';
+import { Link } from 'react-router-dom'; 
 
-function MerchDetails(props) {
+function ShopDetailBox(props) {
     const myProduct = props.product
     console.log(myProduct);
 
     return (
         <>
             <Card className="my-3 p-3 rounded">
-                <Link to={`/shop/`}>
-                    <Card.Img href={myProduct.img} />
-                </Link>
+                    <Card.Img src={myProduct.img} />
                 <Card.Body>
-                    <Link to={`/shop/${myProduct}`}>
                         <Card.Title>
                             <strong>
                                 {myProduct.name}
                             </strong>
                         </Card.Title>
-                    </Link>
-                    <Card.Text as="h3">
+                    <Card.Text as="h6">
                         ${myProduct.price}
                     </Card.Text>
                     <Card.Text as="div">
@@ -35,4 +29,4 @@ function MerchDetails(props) {
     )
 };
 
-export default MerchDetails;
+export default ShopDetailBox;

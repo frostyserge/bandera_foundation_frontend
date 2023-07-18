@@ -1,15 +1,18 @@
 import { Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { productData } from '../ApiCalls';
+import { getProductData } from '../ApiCalls';
 
 function MerchDetail() {
-    const { id } = useParams();
-    console.log(id)
-    const [product, setProduct] = useState(null);
+    const { productId } = useParams();
 
+    console.log('THIS IS THE ID' + productId)
+    const [product, setProduct] = useState(null);
+    const [showEdit, setShowEdit] = useState(false);
+    const [showDeleteConf, setShowDeleteConf] = useState(false);
+    
     async function fetchProduct() {
-        let fetchedProduct = await productData(id);
+        let fetchedProduct = await getProductData(productId);
         setProduct(fetchedProduct);
     }
     useEffect(() => {
@@ -20,7 +23,7 @@ function MerchDetail() {
         <>
         {product ? 
             <Card className="my-3 p-3 rounded">
-                    <Card.Img href={product.img} />
+                    <Card.Img src={product.img} />
                 <Card.Body>
                         <Card.Title>
                             <strong>{product.name}</strong>

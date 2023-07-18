@@ -1,51 +1,52 @@
 import { Row, Col } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { productsData } from '../ApiCalls';
+import { getProductsData } from '../ApiCalls';
 import ShopDetailBox from '../components/ShopDetailBox';
 import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 
 function Shop(props) {
     const [products, setProducts] = useState([]);
+    const [errors, setErrors] = useState({});
 
     async function fetchProducts () {
         try {
-            let allProducts = await productsData()
-            setProducts(allProducts)
-            console.log(allProducts)
+            let products = await getProductsData()
+            setProducts(products)
+            console.log(products)
         } catch(err) {
-            console.log(err)
+            console.log(err);
+            setErrors({...errors, fetch: 'No Products Available'});
         }
     }
     useEffect(() => {
         fetchProducts()
     }, []);
 
-    function renderList() {
+    function loaded(array) {
         console.log(products)
-        const productsArray = products.map((product, idx) => {
             return (
-                        <Row>
-                                <Col key={idx} sm={12} md={6} lg={4} xl={3}>
-                                    <Link to={`/shop/${product._id}`}>
-                                        <ShopDetailBox product={product} />
-                                    </Link>
-                                </Col>
-                        </Row>
+                <>
+                    {array.map((product, idx) => {
+                        return (
+                            <Row>
+                                    <Col key={idx}>
+                                        <Link to={`${product._id}`}>
+                                            <ShopDetailBox product={product} />
+                                        </Link>
+                                    </Col>
+                            </Row>
+                        )
+                    })}
+                </>
             )
-        })
-        return productsArray;
-    };
-    return (
-            <>
-            <div>
-                <h1>
-                    Each purchase makes a difference!
-                </h1>
-                {renderList()}
-            </div>
-        </>
-    )
+        }
+        return (
+                <>
+                    {products.length ? loaded(products) : <h3>Loading...</h3>}
+                </>
+        )
 };
 
 export default Shop;

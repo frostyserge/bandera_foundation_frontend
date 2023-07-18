@@ -1,6 +1,6 @@
 const URL = 'http://127.0.0.1:8000/';
 
-export async function productsData() {
+export async function getProductsData() {
     try {
         let products = await fetch(URL + `shop/`)
         const parsedProducts = await products.json()
@@ -13,7 +13,7 @@ export async function productsData() {
     }
 };
 
-export async function productData(id) {
+export async function getProductData(id) {
     try {
         let product = await fetch(URL + `shop/${id}`)
         product = await product.json()

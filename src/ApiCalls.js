@@ -27,19 +27,19 @@ export async function getProductData(id) {
 
 export async function createProduct(object) {
     try {
-        let newProductObj = {
+        let newProductForm = {
             name: object.name,
             img: object.img,
             price: object.price,
             in_stock_amount: object.in_stock_amount,
             description: object.description
         }
-        await fetch(URL + `/shop/new`, {
+        await fetch(URL + `shop/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(newProductObj)
+            body: JSON.stringify(newProductForm)
         })
     } catch(err) {
         console.log(err)

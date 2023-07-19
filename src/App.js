@@ -10,6 +10,7 @@ import MerchDelete from './components/MerchDelete';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MerchDetail from './pages/MerchDetail';
 import { useState } from 'react';
+import MerchCreate from './components/MerchCreate';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/shop">
                     <Route path="" element={<Shop />} />
+                    <Route path="new" element={<MerchCreate  />} />
                     <Route path=":productId" element={<MerchDetail />}>
                         {/* <Route path="edit" element={<MerchEdit />} />
                         <Route path="delete" element={<MerchDelete />} /> */}

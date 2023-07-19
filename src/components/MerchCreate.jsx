@@ -1,8 +1,12 @@
 import { createProduct } from "../ApiCalls";
 import { useState } from "react";
+import { Row, Form, Button, Container } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
+
 
 function MerchCreate(props) {
-    const {product, setShowEdit, fetchProduct} = props;
+    const navigate = useNavigate();
+
 
     const [productForm, setProductForm] = useState({
         name: '',
@@ -25,8 +29,7 @@ function MerchCreate(props) {
             console.log(productForm);
             const newProduct = await createProduct(productForm);
             e.target.reset()
-            fetchProduct();
-            setShowEdit(false);
+            navigate('/shop')
         } catch (err) {
             console.log(err);
         }

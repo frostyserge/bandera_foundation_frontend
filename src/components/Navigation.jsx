@@ -13,16 +13,9 @@ function Navigation() {
 
     return(
         <div>
-            <Navbar bg="light" variant="light">
-                <Navbar.Brand href="/">Bandera Foundation</Navbar.Brand>
-                <Nav className="me-auto">
-                    {isAuth ? <Nav.Link href="/">Home</Nav.Link> : null}
-                </Nav>
-                <Nav>
-                    {isAuth ? <Nav.Link href="/logout">Logout</Nav.Link> :
-                    <Nav.Link href="/login">Login</Nav.Link>}
-                </Nav>
-            </Navbar>
+                    {isAuth ? <Nav.Link to="/shop/new">Update Shop</Nav.Link> : null}
+                    {isAuth ? <Nav.Link to="/logout">Logout</Nav.Link> :
+                    <Nav.Link to="/login"><i className="fas fa-user"></i>Login</Nav.Link>}
         </div>
     )
 };

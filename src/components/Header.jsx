@@ -1,11 +1,15 @@
 import { Navbar, Nav, Container, Row, NavDropdown } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import Navigation from './Navigation';
 
 function Header() {
     return (
         <header>
             <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
                 <Container fluid>
-                    <Navbar.Brand href="/">Bandera Foundation</Navbar.Brand>
+                    <LinkContainer to="/">
+                        <Navbar.Brand>Bandera Foundation</Navbar.Brand>
+                    </LinkContainer>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -13,38 +17,53 @@ function Header() {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="/about">About</Nav.Link>
-                            <Nav.Link href="/projects">Projects</Nav.Link>
-                            <Nav.Link href="/reports">
-                                Reports
-                            </Nav.Link>
+                            <LinkContainer to="/about">
+                                <Nav.Link>About</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/projects">
+                                <Nav.Link>Projects</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/reports">
+                                <Nav.Link>Reports</Nav.Link>
+                            </LinkContainer>
                             <NavDropdown
                                 title="Help"
                                 id="navbarScrollingDropdown"
                             >
-                                <NavDropdown.Item href="/civilian_help">
-                                    Civilians
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="/military_help">
-                                    Army
-                                </NavDropdown.Item>
+                                <LinkContainer to="/civilian_help">
+                                    <NavDropdown.Item>
+                                        Civilians
+                                    </NavDropdown.Item>
+                                </LinkContainer>
+                                <LinkContainer to="/military_help">
+                                    <NavDropdown.Item>Army</NavDropdown.Item>
+                                </LinkContainer>
                             </NavDropdown>
                             <NavDropdown
                                 title="Shop"
-                                id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="/merch">
-                                    Merch
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="/cart">
-                                    <i className="fas fa-shopping-cart"></i>Cart
-                                </NavDropdown.Item>
+                                id="navbarScrollingDropdown"
+                            >
+                                <LinkContainer to="/shop">
+                                    <NavDropdown.Item>Merch</NavDropdown.Item>
+                                </LinkContainer>
+                                <LinkContainer to="/cart">
+                                    <NavDropdown.Item>
+                                        <i className="fas fa-shopping-cart"></i>
+                                        Cart
+                                    </NavDropdown.Item>
+                                </LinkContainer>
                             </NavDropdown>
-                            <Nav.Link href="/donate">
-                                Donate
-                            </Nav.Link>
-                            <Nav.Link href="/login">
-                            <i className="fas fa-user"></i>Login
-                            </Nav.Link>
+                            <Nav className="justify-content-end">
+                                <LinkContainer to="/donate">
+                                    <Nav.Link>Donate</Nav.Link>
+                                </LinkContainer>
+                                <Navigation />
+                            </Nav>
+                            {/* <LinkContainer to="/login">
+                                <Nav.Link>
+                                <i className="fas fa-user"></i>Login
+                                </Nav.Link>
+                            </LinkContainer> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

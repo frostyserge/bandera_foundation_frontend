@@ -1,4 +1,4 @@
-const URL = 'http://127.0.0.1:8000/';
+const URL = 'https://bandera-foundation.onrender.com/';
 
 export async function getProductsData() {
     try {
@@ -34,7 +34,7 @@ export async function createProduct(object) {
             in_stock_amount: object.in_stock_amount,
             description: object.description
         }
-        await fetch(URL + `/shop`, {
+        await fetch(URL + `/shop/new`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -26,6 +26,7 @@ export async function getProductData(id) {
 };
 
 export async function createProduct(object) {
+    console.log(object);
     try {
         let newProductForm = {
             name: object.name,
@@ -34,15 +35,18 @@ export async function createProduct(object) {
             in_stock_amount: object.in_stock_amount,
             description: object.description
         }
-        await fetch(URL + `shop/`, {
+        const createResponse = await fetch(URL + `shop/new/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(newProductForm)
         })
+        return createResponse;
+
     } catch(err) {
         console.log(err)
+        return null
     }
 }
 

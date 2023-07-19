@@ -1,5 +1,6 @@
 import './App.css';
 import Header from './components/Header';
+import About from './pages/About';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Logout from './components/Logout';
@@ -20,6 +21,7 @@ function App() {
         <Router>
             <Header />
             <Routes>
+                <Route path="/about" element={<About />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/shop">
                     <Route path="" element={<Shop />} />

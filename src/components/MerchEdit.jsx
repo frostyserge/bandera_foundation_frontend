@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { editProduct } from '../ApiCalls';
 import { Row, Form, Button, Container } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function MerchEdit(props) {
     const {product, setShowEdit, fetchProduct} = props;
+    const navigate = useNavigate()
 
     const [productForm, setProductForm] = useState({
         name: product.name,
@@ -24,7 +26,12 @@ function MerchEdit(props) {
         try {
             e.preventDefault();
             console.log(productForm);
-            const editedProduct = await editProduct(productForm, product._id);
+            const edited = await editProduct(productForm, product._id);
+            if(edited) {
+                navigate(`/shop/${product._id}`);
+            } else {
+                console.log('UNSUCCESSFUL EDIT');
+            }
             fetchProduct();
             setShowEdit(false);
         } catch (err) {

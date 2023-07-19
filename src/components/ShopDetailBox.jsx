@@ -1,5 +1,4 @@
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom'; 
 
 function ShopDetailBox(props) {
     const myProduct = props.product

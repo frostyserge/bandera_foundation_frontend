@@ -46,6 +46,9 @@ function Header() {
                                 <LinkContainer to="/shop">
                                     <NavDropdown.Item>Merch</NavDropdown.Item>
                                 </LinkContainer>
+                                <LinkContainer to="/shop/new">
+                                    <NavDropdown.Item>Add Merch</NavDropdown.Item>
+                                </LinkContainer>
                                 <LinkContainer to="/cart">
                                     <NavDropdown.Item>
                                         <i className="fas fa-shopping-cart"></i>

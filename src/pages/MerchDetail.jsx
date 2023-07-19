@@ -10,7 +10,7 @@ function MerchDetail() {
 
     console.log('THIS IS THE ID' + productId);
     const [product, setProduct] = useState(null);
-    const [showEdit, setShowEdit] = useState(true);
+    const [showEdit, setShowEdit] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
 
     async function fetchProduct() {
@@ -61,19 +61,6 @@ function MerchDetail() {
             </Card>
         );
     };
-
-    // showEdit ?
-    //    <MerchEdit
-    //        props={{ setShowEdit, product, setProduct, fetchProduct }}
-    //    />
-    // : null
-
-    // {(showDeleteConf && !editControl) ? <>
-    //
-    //     </> :
-    // <>  <Button onClick={editControl}>Edit</Button>
-    //     <Button onClick={deleteControl}>Delete</Button>
-    // </>}
     return product ? (
         loaded()
     ) : (

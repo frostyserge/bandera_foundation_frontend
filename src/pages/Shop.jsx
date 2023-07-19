@@ -1,15 +1,12 @@
 import { Row, Col, Spinner } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
 import { getProductsData } from '../ApiCalls';
 import ShopDetailBox from '../components/ShopDetailBox';
 import { Link } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap';
 
 function Shop(props) {
     const [products, setProducts] = useState([]);
     const [errors, setErrors] = useState({});
-    const [createFormShow, setCreateFormShow] = useState(false)
 
     async function fetchProducts() {
         try {
@@ -29,7 +26,6 @@ function Shop(props) {
         console.log(products);
         return (
             <>
-                {products}
                 {array.map((product, idx) => {
                     return (
                         <Row>

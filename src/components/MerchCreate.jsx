@@ -56,12 +56,11 @@ function MerchCreate(props) {
                     <Form.Label>Description: </Form.Label>
                     <Form.Control type="text" onChange={handleChange} name='description' value={productForm.description} placeholder="Enter Description" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-                <Button style={{color: "#e21d1d",}} onClick={() => {setShowEdit(false)}}>
-                    Close
-                </Button>
+                <Container>
+                    <Button variant="primary" type="submit">
+                        Add
+                    </Button>
+                </Container>
             </Form>
         </Container>
     );

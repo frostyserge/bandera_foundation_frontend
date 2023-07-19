@@ -25,7 +25,7 @@ export async function getProductData(id) {
     }
 };
 
-export async function newProduct(object) {
+export async function createProduct(object) {
     try {
         let newProductObj = {
             name: object.name,
@@ -33,7 +33,6 @@ export async function newProduct(object) {
             price: object.price,
             in_stock_amount: object.in_stock_amount,
             description: object.description
-
         }
         await fetch(URL + `/shop`, {
             method: 'POST',
@@ -57,7 +56,7 @@ export async function editProduct(object, id) {
             description: object.description
 
         }
-        await fetch(URL + `/shop/${id}`, {
+        await fetch(URL + `shop/${id}/`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -72,12 +71,15 @@ export async function editProduct(object, id) {
 export async function deleteProduct(id) {
     try {
         console.log('TRYING TO DELETE')
-        await fetch(URL + `/shop/${id}`, {
+        const deletedProduct = await fetch(URL + `shop/${id}/`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             }
         })
+        if (deletedProduct) {
+            return true
+        }
     } catch(err) {
         console.log(err)
     }

@@ -29,38 +29,36 @@ function Header() {
                             <NavDropdown
                                 title="Help"
                                 id="navbarScrollingDropdown"
-                                >
+                            >
                                 <LinkContainer to="/civilian_help">
                                     <NavDropdown.Item>
                                         Civilians
                                     </NavDropdown.Item>
                                 </LinkContainer>
                                 <LinkContainer to="/military_help">
-                                    <NavDropdown.Item>
-                                        Army
-                                    </NavDropdown.Item>
+                                    <NavDropdown.Item>Army</NavDropdown.Item>
                                 </LinkContainer>
                             </NavDropdown>
                             <NavDropdown
                                 title="Shop"
-                                id="navbarScrollingDropdown">
+                                id="navbarScrollingDropdown"
+                            >
                                 <LinkContainer to="/shop">
-                                    <NavDropdown.Item>
-                                        Merch
-                                    </NavDropdown.Item>
+                                    <NavDropdown.Item>Merch</NavDropdown.Item>
                                 </LinkContainer>
                                 <LinkContainer to="/cart">
                                     <NavDropdown.Item>
-                                        <i className="fas fa-shopping-cart"></i>Cart
+                                        <i className="fas fa-shopping-cart"></i>
+                                        Cart
                                     </NavDropdown.Item>
                                 </LinkContainer>
                             </NavDropdown>
-                            <LinkContainer to="/donate">
-                                <Nav.Link>
-                                    Donate
-                                </Nav.Link>
-                            </LinkContainer>
-                            <Navigation />
+                            <Nav className="justify-content-end">
+                                <LinkContainer to="/donate">
+                                    <Nav.Link>Donate</Nav.Link>
+                                </LinkContainer>
+                                <Navigation />
+                            </Nav>
                             {/* <LinkContainer to="/login">
                                 <Nav.Link>
                                 <i className="fas fa-user"></i>Login

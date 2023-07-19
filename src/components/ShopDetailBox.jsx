@@ -5,7 +5,7 @@ function ShopDetailBox(props) {
     console.log(myProduct);
 
     return (
-        <>
+        <>  
             <Card className="my-3 p-3 rounded">
                     <Card.Img src={myProduct.img} />
                 <Card.Body>

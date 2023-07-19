@@ -11,8 +11,8 @@ function Home() {
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <h5>First slide label</h5>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                  <h5>Event Name</h5>
+                  <p>Event Description</p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
@@ -22,8 +22,8 @@ function Home() {
                   alt="Second slide"
                 />
                 <Carousel.Caption>
-                  <h5>Second slide label</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <h5>Event Name</h5>
+                  <p>Event Description</p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
@@ -33,9 +33,9 @@ function Home() {
                   alt="Third slide"
                 />
                 <Carousel.Caption>
-                  <h5>Third slide label</h5>
+                  <h5>Event Name</h5>
                   <p>
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                  Event Name.
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>

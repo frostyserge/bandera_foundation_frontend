@@ -1,21 +1,20 @@
-import { useState } from 'react';
-import { editProduct } from '../ApiCalls';
-import { Row, Form, Button, Container } from 'react-bootstrap';
+import { createProduct } from "../ApiCalls";
+import { useState } from "react";
 
-function MerchEdit(props) {
+function MerchCreate(props) {
     const {product, setShowEdit, fetchProduct} = props;
 
     const [productForm, setProductForm] = useState({
-        name: product.name,
-        img: product.img,
-        price: product.price,
-        in_stock_amount: product.in_stock_amount,
-        description: product.description,
+        name: '',
+        img: '',
+        price: '',
+        in_stock_amount: '',
+        description: '',
     });
 
     function handleChange(e) {
-        setProductForm((prevState) => ({
-            ...prevState,
+        setProductForm((currentState) => ({
+            ...currentState,
             [e.target.name]: e.target.value,
         }));
     }
@@ -24,7 +23,8 @@ function MerchEdit(props) {
         try {
             e.preventDefault();
             console.log(productForm);
-            const editedProduct = await editProduct(productForm, product._id);
+            const newProduct = await createProduct(productForm);
+            e.target.reset()
             fetchProduct();
             setShowEdit(false);
         } catch (err) {
@@ -67,4 +67,4 @@ function MerchEdit(props) {
     );
 }
 
-export default MerchEdit;
+export default MerchCreate;

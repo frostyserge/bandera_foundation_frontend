@@ -23,8 +23,8 @@ function App() {
                 <Route path="/shop">
                     <Route path="" element={<Shop />} />
                     <Route path=":productId" element={<MerchDetail />}>
-                        <Route path="edit" element={<MerchEdit />} />
-                        <Route path="delete" element={<MerchDelete />} />
+                        {/* <Route path="edit" element={<MerchEdit />} />
+                        <Route path="delete" element={<MerchDelete />} /> */}
                     </Route>
                 </Route>
                 <Route path="/login" element={<Login />} />

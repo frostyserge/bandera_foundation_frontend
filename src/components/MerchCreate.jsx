@@ -4,15 +4,15 @@ import { Row, Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 
 
-function MerchCreate(props) {
+function MerchCreate() {
     const navigate = useNavigate();
 
 
     const [productForm, setProductForm] = useState({
         name: '',
         img: '',
-        price: '',
-        in_stock_amount: '',
+        price: 0.00,
+        in_stock_amount: 0,
         description: '',
     });
 
@@ -27,9 +27,13 @@ function MerchCreate(props) {
         try {
             e.preventDefault();
             console.log(productForm);
-            const newProduct = await createProduct(productForm);
+            const added = await createProduct(productForm);
+            if(added) {
+                navigate('/shop');
+            } else {
+                console.log('PRODUCT NOT CREATED');
+            }
             e.target.reset()
-            navigate('/shop')
         } catch (err) {
             console.log(err);
         }
@@ -49,11 +53,11 @@ function MerchCreate(props) {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="newProductPrice">
                     <Form.Label>Price: </Form.Label>
-                    <Form.Control type="text" onChange={handleChange} name='price' value={productForm.price} placeholder="Enter Price" />
+                    <Form.Control type="number" onChange={handleChange} name='price' value={productForm.price} placeholder="Enter Price" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="newProductInStockAmnt">
                     <Form.Label>Amount in Stock: </Form.Label>
-                    <Form.Control type="text" onChange={handleChange} name='in_stock_amount' value={productForm.in_stock_amount} placeholder="How many are in stock?" />
+                    <Form.Control type="number" onChange={handleChange} name='in_stock_amount' value={productForm.in_stock_amount} placeholder="How many are in stock?" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="newProductDescription">
                     <Form.Label>Description: </Form.Label>

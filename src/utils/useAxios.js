@@ -17,9 +17,9 @@ function useAxios () {
 
     axiosInst.interceptors.request.use(async req => {
         const user = jwt_decode(authTokens)
-        const isExpired = dayjs.unix(user.exp).diff(dayjs()) < 1 // if teh access is expired
+        const isExpired = dayjs.unix(user.exp).diff(dayjs()) < 1 // if the access is expired
 
-        if (isExpired) return req
+        if (!isExpired) return req
 
         const response = await axios.post(`${baseURL}/token/refresh/`, {
             refresh: authTokens.refresh
@@ -27,13 +27,13 @@ function useAxios () {
         localStorage.setItem('authTokens', JSON.stringify(response.data))
 
         setAuthTokens(response.data)
-        setUser(jwt_decode(data.access))
+        setUser(jwt_decode(response.data.access))
 
-        req.headers.Authorization
-        return req
-    })
+        req.headers.Authorization = `Bearer ${response.data.access}`;
+        return req;
+    });
 
-    return axiosInst
+    return axiosInst;
 };
 
 export default useAxios;

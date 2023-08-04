@@ -143,4 +143,6 @@ const handleSubmit = async (e) => {
   
       </div>
     )
-}
+};
+
+export default Register;
